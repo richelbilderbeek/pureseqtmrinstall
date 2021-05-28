@@ -1,0 +1,2 @@
+# pureseqtmrinstall
+pureseqtmr install

@@ -1,2 +1,5 @@
 ^pureseqtmrinstall\.Rproj$
 ^\.Rproj\.user$
+^\.here$
+^\.github$
+^LICENSE$

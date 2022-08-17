@@ -6,7 +6,7 @@ Authors@R: c(
 Description: PureseqTM is a program to determine the topology of a protein.
     pureseqtmr is an R package to work with PureseqTM.
     Following CRAN policy, pureseqtmr is not allowed to install programs.
-    This non-CRAN package installs PureseqTM from R
+    This non-CRAN package installs PureseqTM from R.
 License: GPL-3
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
@@ -14,7 +14,8 @@ RoxygenNote: 7.2.1
 Depends:
     R (>= 3.5.0)
 Imports:
-    pureseqtmr
+    pureseqtmr,
+    rappdirs
 Suggests: 
     testthat,
 URL: https://github.com/richelbilderbeek/pureseqtmrinstall/

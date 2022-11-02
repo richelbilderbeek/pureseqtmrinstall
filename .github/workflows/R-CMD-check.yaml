@@ -13,9 +13,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        include:
-          - install_pureseqtm: "true" 
-          - install_pureseqtm: "false"
+        - install_pureseqtm: "true" 
+        - install_pureseqtm: "false"
 
     runs-on: ubuntu-latest
     env:

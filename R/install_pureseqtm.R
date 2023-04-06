@@ -51,8 +51,7 @@ install_pureseqtm <- function(
 
     # If the folder already exists, remove it, else git will complain
     if (dir.exists(basename(pureseqtm_url))) {
-      stop("Folder exists, DO NOT DELETE YET, to be sure!")
-      # unlink(basename(pureseqtm_url), recursive = TRUE)
+      unlink(basename(pureseqtm_url), recursive = TRUE)
     }
 
     message("Start cloning repo at ", folder_name)

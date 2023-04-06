@@ -32,20 +32,26 @@ install_pureseqtm <- function(
 
     message("Re-cloning PureseqTM :-)")
 
-    # Try creating a file, to check permissions
-    message("Check we can we write to that folder")
-    temp_filename <- file.path(pureseqtm_folder, "tempfile.txt")
-    readr::write_lines("I was here", file = temp_filename)
-    if (!file.exists(temp_filename)) {
-      stop(
-        "Cannot creat temporary file at '", temp_filename, "' \n",
-        "Maybe no permission to write there?"
-      )
+    if (1 == 2) {
+      # Try creating a file, to check permissions
+      message("Check we can we write to that folder")
+      temp_filename <- file.path(pureseqtm_folder, "tempfile.txt")
+      readr::write_lines("I was here", file = temp_filename)
+      if (!file.exists(temp_filename)) {
+        stop(
+          "Cannot creat temporary file at '", temp_filename, "' \n",
+          "Maybe no permission to write there?"
+        )
+      }
     }
 
     curwd <- getwd()
     on.exit(setwd(curwd))
     setwd(folder_name)
+
+    # If the folder already exists, remove it, else git will complain
+    unlink(basename(pureseqtm_url), recursive = TRUE)
+
     message("Start cloning repo at ", folder_name)
     system2(
       command = "git",

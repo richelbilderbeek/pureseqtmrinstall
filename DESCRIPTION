@@ -16,7 +16,7 @@ Depends:
     R (>= 3.5.0)
 Imports:
     gitr,
-    pureseqtmr,
+    pureseqtmr (>= 1.4),
     rappdirs
 Suggests: 
     testthat,

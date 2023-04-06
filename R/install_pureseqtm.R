@@ -30,21 +30,6 @@ install_pureseqtm <- function(
   bin_filename <- normalizePath(file.path(pureseqtm_folder, "PureseqTM.sh"))
   if (!dir.exists(pureseqtm_folder) || !file.exists(bin_filename)) {
 
-    message("Re-cloning PureseqTM :-)")
-
-    if (1 == 2) {
-      # Try creating a file, to check permissions
-      message("Check we can we write to that folder")
-      temp_filename <- file.path(pureseqtm_folder, "tempfile.txt")
-      readr::write_lines("I was here", file = temp_filename)
-      if (!file.exists(temp_filename)) {
-        stop(
-          "Cannot creat temporary file at '", temp_filename, "' \n",
-          "Maybe no permission to write there?"
-        )
-      }
-    }
-
     curwd <- getwd()
     on.exit(setwd(curwd))
     setwd(folder_name)
@@ -53,16 +38,14 @@ install_pureseqtm <- function(
     if (dir.exists(basename(pureseqtm_url))) {
       unlink(basename(pureseqtm_url), recursive = TRUE)
     }
-
-    message("Start cloning repo at ", folder_name)
     system2(
       command = "git",
       args = c(
         "clone",
         paste0(pureseqtm_url, ".git")
       ),
-      stdout = "",
-      stderr = ""
+      stdout = NULL,
+      stderr = NULL
     )
     setwd(curwd)
     message("Done cloning repo at ", curwd)

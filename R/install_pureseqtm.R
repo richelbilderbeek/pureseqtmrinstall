@@ -26,8 +26,14 @@ install_pureseqtm <- function(
       basename(pureseqtm_url)
     )
   )
-  if (!dir.exists(pureseqtm_folder)) {
+
+  bin_filename <- normalizePath(file.path(pureseqtm_folder, "PureseqTM.sh"))
+  if (!dir.exists(pureseqtm_folder) || !file.exists(bin_filename)) {
+
+    message("Re-cloning PureseqTM :-)")
+
     # Try creating a file, to check permissions
+    message("Check we can we write to that folder")
     temp_filename <- file.path(pureseqtm_folder, "tempfile.txt")
     readr::write_lines("I was here", file = temp_filename)
     if (!file.exists(temp_filename)) {
@@ -40,6 +46,7 @@ install_pureseqtm <- function(
     curwd <- getwd()
     on.exit(setwd(curwd))
     setwd(folder_name)
+    message("Start cloning repo at ", folder_name)
     system2(
       command = "git",
       args = c(
@@ -50,12 +57,11 @@ install_pureseqtm <- function(
       stderr = NULL
     )
     setwd(curwd)
+    message("Done cloning repo at ", curwd)
   }
   testthat::expect_true(dir.exists(pureseqtm_folder))
 
   # Does the binary exist?
-
-  bin_filename <- normalizePath(file.path(pureseqtm_folder, "PureseqTM.sh"))
   if (!file.exists(bin_filename)) {
     stop(
       "Could not find 'bin_filename' at ",

@@ -16,11 +16,27 @@ install_pureseqtm <- function(
   }
 
   # Create the folder if needed, do not warn if it is already present
-  dir.create(folder_name, showWarnings = FALSE, recursive = TRUE)
+  dir.create(folder_name, showWarnings = TRUE, recursive = TRUE)
+
 
   # Check if already cloned
-  pureseqtm_folder <- file.path(folder_name, basename(pureseqtm_url))
+  pureseqtm_folder <- normalizePath(
+    file.path(
+      folder_name,
+      basename(pureseqtm_url)
+    )
+  )
   if (!dir.exists(pureseqtm_folder)) {
+    # Try creating a file, to check permissions
+    temp_filename <- file.path(pureseqtm_folder, "tempfile.txt")
+    readr::write_lines("I was here", file = temp_filename)
+    if (!file.exists(temp_filename)) {
+      stop(
+        "Cannot creat temporary file at '", temp_filename, "' \n",
+        "Maybe no permission to write there?"
+      )
+    }
+
     curwd <- getwd()
     on.exit(setwd(curwd))
     setwd(folder_name)

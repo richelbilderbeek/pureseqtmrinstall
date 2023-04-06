@@ -39,7 +39,12 @@ install_pureseqtm <- function(
 
   # Does the binary exist?
   bin_filename <- file.path(pureseqtm_folder, "PureseqTM.sh")
-  testthat::expect_true(file.exists(bin_filename))
+  if (!file.exists(bin_filename)) {
+    stop(
+      "Could not find 'bin_filename' at ",
+      bin_filename
+    )
+  }
 
   # Binaries are made for Linux, recompile on other OSes
   if (rappdirs::app_dir()$os != "unix") {

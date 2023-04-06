@@ -38,8 +38,8 @@ install_pureseqtm <- function(
   testthat::expect_true(dir.exists(pureseqtm_folder))
 
   # Does the binary exist?
-  bin_filename <- file.path(pureseqtm_folder, "PureseqTM.sh")
-  message("WE ARE HERE! bin_filename = ", bin_filename)
+
+  bin_filename <- normalizePath(file.path(pureseqtm_folder, "PureseqTM.sh"))
   if (!file.exists(bin_filename)) {
     stop(
       "Could not find 'bin_filename' at ",

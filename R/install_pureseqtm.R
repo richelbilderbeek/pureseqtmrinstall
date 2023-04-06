@@ -39,6 +39,7 @@ install_pureseqtm <- function(
 
   # Does the binary exist?
   bin_filename <- file.path(pureseqtm_folder, "PureseqTM.sh")
+  message("WE ARE HERE! bin_filename = ", bin_filename)
   if (!file.exists(bin_filename)) {
     stop(
       "Could not find 'bin_filename' at ",

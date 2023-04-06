@@ -53,8 +53,8 @@ install_pureseqtm <- function(
         "clone",
         paste0(pureseqtm_url, ".git")
       ),
-      stdout = NULL,
-      stderr = NULL
+      stdout = "",
+      stderr = ""
     )
     setwd(curwd)
     message("Done cloning repo at ", curwd)

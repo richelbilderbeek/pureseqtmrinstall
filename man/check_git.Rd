@@ -13,9 +13,7 @@ Nothing.
 Check that \code{git} is installed
 }
 \examples{
-\dontrun{
-  check_git()
-}
+check_git()
 }
 \author{
 Richèl J.C. Bilderbeek

@@ -1,9 +1,7 @@
 #' Check that `git` is installed
 #' @return Nothing.
 #' @examples
-#' \dontrun{
-#'   check_git()
-#' }
+#' check_git()
 #' @author Richèl J.C. Bilderbeek
 #' @export
 check_git <- function() {

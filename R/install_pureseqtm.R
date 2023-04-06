@@ -11,12 +11,13 @@ install_pureseqtm <- function(
   folder_name = pureseqtmr::get_default_pureseqtm_folder(),
   pureseqtm_url = pureseqtmr::get_pureseqtm_url()
 ) {
+  pureseqtmr::check_linux()
   if (pureseqtmr::is_pureseqtm_installed(folder_name = folder_name)) {
     stop("PureseqTMis already installed")
   }
 
   # Create the folder if needed, do not warn if it is already present
-  dir.create(folder_name, showWarnings = TRUE, recursive = TRUE)
+  dir.create(folder_name, showWarnings = FALSE, recursive = TRUE)
 
 
   # Check if already cloned
@@ -38,6 +39,7 @@ install_pureseqtm <- function(
     if (dir.exists(basename(pureseqtm_url))) {
       unlink(basename(pureseqtm_url), recursive = TRUE)
     }
+    pureseqtmr::check_git()
     system2(
       command = "git",
       args = c(

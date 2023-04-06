@@ -2,6 +2,24 @@
 
 Newest versions at top.
 
+## pureseqtmrinstall 0.3 (2023-04-06)
+
+### NEW FEATURES
+
+  * None
+
+### MINOR IMPROVEMENTS
+
+  * Detect if running under Linux, thanks Clifford Phaneuf
+
+### BUG FIXES
+
+  * None
+
+### DEPRECATED AND DEFUNCT
+
+  * None
+
 ## pureseqtmrinstall 0.2 (2023-04-06)
 
 ### NEW FEATURES

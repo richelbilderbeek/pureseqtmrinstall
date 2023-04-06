@@ -11,7 +11,7 @@ install_pureseqtm <- function(
   folder_name = pureseqtmr::get_default_pureseqtm_folder(),
   pureseqtm_url = pureseqtmr::get_pureseqtm_url()
 ) {
-  pureseqtmr::check_linux()
+  pureseqtmrinstall::check_linux()
   if (pureseqtmr::is_pureseqtm_installed(folder_name = folder_name)) {
     stop("PureseqTMis already installed")
   }

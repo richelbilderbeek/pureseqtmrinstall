@@ -39,7 +39,7 @@ install_pureseqtm <- function(
     if (dir.exists(basename(pureseqtm_url))) {
       unlink(basename(pureseqtm_url), recursive = TRUE)
     }
-    pureseqtmr::check_git()
+    pureseqtmrinstall::check_git()
     system2(
       command = "git",
       args = c(

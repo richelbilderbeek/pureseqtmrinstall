@@ -2,7 +2,7 @@ Package: pureseqtmrinstall
 Title: Install PureseqTM
 Version: 0.3
 Authors@R: c(
-    person("Richèl J.C.", "Bilderbeek", email = "richel@richelbilderbeek.nl", role = c("aut", "cre"), comment = c(ORCID = "0000-0003-1107-7049")),
+    person("Richèl J.C.", "Bilderbeek", email = "rjcbilderbeek@gmail.com", role = c("aut", "cre"), comment = c(ORCID = "0000-0003-1107-7049")),
     person("Clifford", "Phaneuf", role = "ctb", comment = c(ORCID = "0000-0001-5015-6212")))
 Description: PureseqTM is a program to determine the topology of a protein.
     pureseqtmr is an R package to work with PureseqTM.
